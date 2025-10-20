@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infographic & Video Demo</title>
+  <style>
+    :root {
+      --bg-color: #e8f1f8;
+      --text-color: #1e3d59;
+      --box-bg: rgba(255, 255, 255, 0.4);
+      --shadow-color: rgba(0,0,0,0.1);
+      --accent-color: #1e3d59;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--bg-color);
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: background-color 0.8s ease, color 0.8s ease;
+    }
+
+    main.container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      font-family: fantasy;
+      font-weight: bold;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      color: var(--accent-color);
+    }
+
+    figcaption {
+      text-align: center;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .hinhanh {
+      display: flex;
+      justify-content: center;
+    }
+
+    .responsive-img,
+    .responsive-video {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px var(--shadow-color);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease, box-shadow 0.8s ease, border 0.8s ease;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .responsive-video {
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer.footer {
+      text-align: center;
+      font-size: 14px;
+      color: var(--text-color);
+      margin-top: 50px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      background-color: var(--box-bg);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease;
+    }
+
+    footer.footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer.footer a:hover {
+      text-decoration: underline;
+    }
+
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--box-bg);
+      color: var(--text-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 25px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.5s, color 0.5s, transform 0.3s;
+      z-index: 1000;
+    }
+
+    .mode-toggle:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: scale(1.05);
+    }
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #e8f1f8, #cfe0f2, #dbe5f7, #f0f8fc);
+      background-size: 400% 400%;
+      color: #1e3d59;
+      overflow-x: hidden;
+      transition: color 0.8s ease;
+      animation: gradientBG 30s ease infinite;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+  }
+  </style>
+</head>
+
+<body>
+ <main class="container">
+    <h1 class="fade-in">Infographic và Video MP4</h1>
+
+    <section class="infographic fade-in" aria-labelledby="infographic-heading">
+      <h2 id="infographic-heading">Infographic</h2>
+      <figure>
+        <div class="hinhanh">
+          <img src="c:\Users\DELL\Downloads\Infographic - Lợi ích của công nghệ số.png" 
+               alt="Infographic - Lợi ích của công nghệ số" 
+               class="responsive-img fade-in">
+        </div>
+        <figcaption>Infographic - Lợi ích của công nghệ số</figcaption>
+      </figure>
+    </section>
+
+    <section class="video fade-in" aria-labelledby="video-heading">
+      <h2 id="video-heading">Video MP4</h2>
+      <div class="video-container">
+        <video controls preload="metadata" class="responsive-video fade-in">
+          <source src="c:\Users\DELL\Downloads\1018.mp4" type="video/mp4">
+        </video>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer fade-in">
+    <p>
+      © <span id="year"></span> © 2025 Infographic và Video. All rights reserved.<br>
+      Chia sẻ theo 
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+        Giấy phép Creative Commons Attribution 4.0
+      </a>
+      <br>
+Lưu ý: Mã nguồn ban đầu được viết với sự hỗ trợ của GitHub Copilot.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => appearOnScroll.observe(el));
+ </script>
+</body>
+</html>
