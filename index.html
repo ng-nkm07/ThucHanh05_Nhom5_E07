@@ -1,0 +1,376 @@
+<!doctype html>
+<html lang="vi">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Infographic & Video Demo</title>
+  <style>
+    :root {
+      --text-color: #1e3d59;
+      --box-bg: rgba(255, 255, 255, 0.4);
+      --accent-color: #1e3d59;
+    }
+
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(-45deg, #e8f1f8, #cfe0f2, #dbe5f7, #f0f8fc);
+      background-size: 400% 400%;
+      color: var(--text-color);
+      overflow-x: hidden;
+      transition: color 0.8s ease, background 1s ease;
+      animation: gradientBG 30s ease infinite;
+      position: relative;
+    }
+
+    body.dark-mode {
+      background: linear-gradient(-45deg, #0f172a, #1e293b, #0f172a, #1e293b);
+      background-size: 400% 400%;
+      color: #f1f5f9;
+      animation: gradientBG 40s ease infinite;
+      --box-bg: rgba(255, 255, 255, 0.05);
+      --accent-color: #60a5fa;
+    }
+
+    @keyframes gradientBG {
+      0% {background-position: 0% 50%;}
+      50% {background-position: 100% 50%;}
+      100% {background-position: 0% 50%;}
+    }
+
+    main.container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 40px;
+      font-family: fantasy;
+      font-weight: bold;
+      margin-bottom: 40px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease, transform 1s ease;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 28px;
+      color: var(--accent-color);
+    }
+
+    p {
+      text-align: center;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 18px;
+      margin-bottom: 15px;
+    }
+
+    figcaption {
+      text-align: center;
+      font-family: monospace;
+      font-weight: bold;
+      font-size: 15px;
+      margin-top: 10px;
+    }
+
+    .hinhanh {
+      display: flex;
+      justify-content: center;
+    }
+
+    .responsive-img,
+    .responsive-video {
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease, box-shadow 0.8s ease, border 0.8s ease;
+    }
+
+    .video-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      margin-top: 20px;
+    }
+
+    .responsive-video {
+      border: 2px solid rgba(255, 255, 255, 0.4);
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer.footer {
+      text-align: center;
+      font-size: 14px;
+      color: inherit;
+      margin-top: 50px;
+      padding: 20px 0;
+      border-top: 1px solid rgba(0,0,0,0.1);
+      background-color: var(--box-bg);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1.2s ease, transform 1.2s ease, background-color 0.8s ease;
+    }
+
+    footer.footer a {
+      color: var(--accent-color);
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    footer.footer a:hover {
+      text-decoration: underline;
+    }
+
+    .mode-toggle {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      background-color: var(--box-bg);
+      color: var(--text-color);
+      border: 2px solid var(--accent-color);
+      border-radius: 25px;
+      padding: 8px 16px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 14px;
+      transition: background-color 0.5s, color 0.5s, transform 0.3s;
+      z-index: 1000;
+    }
+
+    .mode-toggle:hover {
+      background-color: var(--accent-color);
+      color: white;
+      transform: scale(1.05);
+    }
+
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      opacity: 0.8;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      0% { opacity: 0.2; transform: scale(1);}
+      50% { opacity: 1; transform: scale(1.5);}
+      100% { opacity: 0.2; transform: scale(1);}
+    }
+
+    .shooting-star {
+      position: absolute;
+      width: 150px;
+      height: 3px;
+      background: radial-gradient(circle at 10px 50%, white 0%, rgba(255,255,255,0.6) 20%, rgba(255,255,255,0) 80%);
+      opacity: 0.9;
+      transform: rotate(45deg);
+      border-radius: 2px;
+      pointer-events: none;
+      animation: fall 2s linear forwards;
+      filter: drop-shadow(0 0 6px white);
+    }
+
+    @keyframes fall {
+      0% {
+        opacity: 1;
+        transform: translate(0, 0) rotate(45deg);
+      }
+      100% {
+        transform: translate(600px, 600px) rotate(45deg);
+        opacity: 0;
+      }
+    }
+        .cloud {
+
+            background: #fff;
+            position: absolute;
+          
+            border-radius: 50%;
+            
+            box-shadow: 
+                100px 0 0 10px #fff,  
+                40px 0 0 20px #fff,   
+                -30px 0 0 15px #fff;  
+       
+            width: 150px;
+            height: 50px;
+            animation: moveCloud 30s linear infinite;
+        }
+
+        .cloud:nth-child(1) {
+            top: 10%;
+            left: -10%;
+            animation-duration: 40s;
+            transform: scale(1.2); 
+            opacity: 0.8;
+        }
+
+        .cloud:nth-child(2) {
+            top: 25%;
+            left: -20%;
+            animation-duration: 30s;
+            transform: scale(0.9);
+            opacity: 0.7;
+        }
+        
+        .cloud:nth-child(3) {
+            top: 40%;
+            left: -30%;
+            animation-duration: 50s;
+            transform: scale(1.5);
+            opacity: 0.9;
+        }
+
+        @keyframes moveCloud {
+            0% {
+                left: -30%; 
+            }
+            100% {
+                left: 110%;
+            }
+        }
+        
+  </style>
+</head>
+<body>
+  <div class="cloud"></div>
+    <div class="cloud"></div>
+    <div class="cloud"></div>
+  <button class="mode-toggle" id="modeButton">🌙 Dark Mode</button>
+
+  <main class="container">
+    <h1 class="fade-in">Infographic và Video MP4</h1>
+
+    <section class="infographic fade-in" aria-labelledby="infographic-heading">
+      <h2 id="infographic-heading">Infographic</h2>
+      <figure>
+        <div class="hinhanh">
+          <img src="ThucHanh05_Nhom5_Bai2.1_Nghĩa.png" 
+               alt="Infographic - Lợi ích của công nghệ số" 
+               class="responsive-img fade-in">
+        </div>
+        <figcaption>Infographic - Lợi ích của công nghệ số</figcaption>
+      </figure>
+    </section>
+
+    <section class="video fade-in" aria-labelledby="video-heading">
+      <h2 id="video-heading">Video MP4</h2>
+      <p>Lợi ích công nghệ số</p>
+      <div class="video-container">
+        <video controls preload="metadata" class="responsive-video fade-in">
+          <source src="1018.mp4" type="video/mp4">
+          Trình duyệt của bạn không hỗ trợ phát video.
+        </video>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer fade-in">
+    <p>
+      © <span id="year"></span> Nhóm 5. Mọi quyền được bảo lưu.<br>
+      Chia sẻ theo 
+      <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">
+        Giấy phép Creative Commons Attribution 4.0
+      </a>.
+    </p>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    const fadeElements = document.querySelectorAll('.fade-in');
+    const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    fadeElements.forEach(el => appearOnScroll.observe(el));
+
+    const modeButton = document.getElementById('modeButton');
+    let stars = [];
+
+    modeButton.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        modeButton.textContent = '☀️ Light Mode';
+        createStars();
+      } else {
+        modeButton.textContent = '🌙 Dark Mode';
+        removeStars();
+      }
+    });
+
+    function createStars() {
+      for(let i=0;i<50;i++){
+        const star = document.createElement('div');
+        star.classList.add('star');
+        star.style.top = Math.random()*window.innerHeight+'px';
+        star.style.left = Math.random()*window.innerWidth+'px';
+        star.style.animationDuration = (1 + Math.random()*2) + 's';
+        document.body.appendChild(star);
+        stars.push(star);
+        moveStar(star);
+      }
+    }
+
+    function removeStars(){
+      stars.forEach(s => s.remove());
+      stars = [];
+    }
+
+    function moveStar(star){
+      const xMove = (Math.random()*20-10);
+      const yMove = (Math.random()*20-10);
+      const duration = 4 + Math.random()*6;
+      star.animate([
+        { transform: 'translate(0px, 0px)' },
+        { transform: `translate(${xMove}px, ${yMove}px)` },
+        { transform: 'translate(0px, 0px)' }
+      ], {
+        duration: duration*1000,
+        iterations: Infinity,
+        easing: 'ease-in-out'
+      });
+    }
+
+    function createShootingStar() {
+      const shootingStar = document.createElement('div');
+      shootingStar.classList.add('shooting-star');
+
+      shootingStar.style.top = Math.random() * window.innerHeight * 0.3 + 'px';
+      shootingStar.style.left = Math.random() * window.innerWidth * 0.8 + 'px';
+
+      document.body.appendChild(shootingStar);
+
+      setTimeout(() => shootingStar.remove(), 2000);
+    }
+    setInterval(() => {
+      if (document.body.classList.contains('dark-mode')) {
+        const count = Math.floor(Math.random() * 2) + 1;
+        for (let i = 0; i < count; i++) {
+          setTimeout(createShootingStar, i * 300);
+        }
+      }
+    }, 1000 + Math.random() * 2000); 
+  </script>
+</body>
+</html>
